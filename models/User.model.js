@@ -29,7 +29,6 @@ googleID: {
 },
 image: {
     type: String,
-    default: ''
 },
 roll: {
     type: String,
@@ -54,7 +53,7 @@ roll: {
   }
 )
 
-userSchema.pre('save', function(next){
+UserSchema.pre('save', function(next){
   if(this.isModified('password')){
     bcryp.hash(this.password, SALT_ROUNDS)
       .then(hash =>{

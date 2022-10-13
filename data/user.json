@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Marcos",
+    "email": "Marcos@marcos.com",
+    "password": "12345678",
+    "img": "https://img2.freepng.es/20180208/bbq/kisspng-car-cartoon-car-luggage-5a7d172ca41ac1.5184071715181473726722.jpg",
+    "roll": "Buddy"
+  },
+  {
+    "name": "Carlos",
+    "email": "Carlos@carlos.com",
+    "password": "12345678",
+    "img": "https://img2.freepng.es/20180227/xqe/kisspng-cartoon-drawing-cartoon-car-5a9530ed8f4b48.9168319215197268295869.jpg",
+    "roll": "Driver"
+  },
+  {
+    "name": "Pablo",
+    "email": "Pablo@pablo.com",
+    "image": "",
+    "roll": "Buddy",
+    "password": "12345678"
+}
+]
