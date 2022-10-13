@@ -3,7 +3,7 @@ require('./config/db.config');
 
 const express = require('express');
 const mongoose = require('mongoose');
-const logger = requiere('morgan');
+const logger = require('morgan');
 const createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 
