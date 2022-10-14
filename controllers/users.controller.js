@@ -16,6 +16,14 @@ module.exports.create = (req, res, next) => {
     })
     .catch(next)
 }
+module.exports.detail = (req, res, next) => {
+  const {id} = req.params
+  User.findById(id)
+    .then(user => {
+      res.status(201).json(user)
+    })
+    .catch(next)
+}
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.currentUser)
     .then(user => {

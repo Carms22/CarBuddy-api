@@ -12,7 +12,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-const routes = require('./config/routes.config');
+const routes = require('./config/index.routes');
 app.use('/api', routes);
 
 //ERRORS

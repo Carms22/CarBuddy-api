@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const CommentSchema = new mongoose.Schema(
   {
-    user: {
+    driver: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true
@@ -11,6 +11,16 @@ const CommentSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Content of the post is required']
     },
+    journey:{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Journey',
+      required: true
+    },
+    commentCreator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    }
   },
   {
     toJSON: {
@@ -18,7 +28,6 @@ const CommentSchema = new mongoose.Schema(
       transform: (doc, ret) => {
         delete ret.__v;
         delete ret._id;
-
         return ret
       }
     }
@@ -26,5 +35,4 @@ const CommentSchema = new mongoose.Schema(
 )
 
 const Comment = mongoose.model('Comment', CommentSchema);
-
 module.exports = Comment;
