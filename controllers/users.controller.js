@@ -17,14 +17,15 @@ module.exports.create = (req, res, next) => {
     .catch(next)
 }
 module.exports.detail = (req, res, next) => {
-  const {id} = req.params
-  User.findById(id)
+  
+  User.findById(req.currentUser)
     .then(user => {
       res.status(201).json(user)
     })
     .catch(next)
 }
 module.exports.getCurrentUser = (req, res, next) => {
+  console.log(req.currentUser);
   User.findById(req.currentUser)
     .then(user => {
       if (!user) {

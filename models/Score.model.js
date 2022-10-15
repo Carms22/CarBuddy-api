@@ -13,9 +13,14 @@ const ScoreSchema = new Schema({
       required: true
     },
     points:{
-      type:Number,
+      type: Number,
       min:[0, "From 0 to 5 points ;) "],
       max:[5, "5 is the limit"]
+    },
+    driver: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     }
 },
 {

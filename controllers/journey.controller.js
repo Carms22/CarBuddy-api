@@ -4,7 +4,7 @@ const Comment = require('../models/Comment.model');
 const Score = require('../models/Score.model');
 const User = require('../models/User.model');
 
-
+//Journey
 module.exports.list = (req, res, next) => {
   Journey.find()
     .then(journeys => {
@@ -25,23 +25,31 @@ module.exports.create = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
   Journey.findById(journeyId)
-    .populate({
-        path: "comments"
-    })
+    .populate({ path: "comments"})
+    .populate({ path: "score"})
     .then(journey => {
+      console.log(journey);
       if(!journey){
         next(createError(404,'Journey not found'))
-      }else{
+      }else{ 
         res.status(201).json(journey)
       }
     })
     .catch(next)
 }
 
+module.exports.edit = (req, res, next) => {
+
+}
+module.exports.delete = (req, res, next) => {
+
+}
+
+
+//Comments
 module.exports.comment = (req, res, next)=> {
   const journeyId = req.params.id;
-  //const userId = req.currentUser;
-  const userId = "6349be452ff90d96a5108be9";
+  const userId = req.currentUser;
   console.log(userId);
   const { content } = req.body;
   Journey.findById(journeyId)
@@ -63,5 +71,36 @@ module.exports.comment = (req, res, next)=> {
     res.status(201).json(journey)
   })
   .catch(next)
+}
 
+module.exports.deleteComment =(req, res, next) => {
+
+}
+
+//Score
+module.exports.score = (req, res, next) => {
+  const userId = req.currentUser;
+  const pointsGave = req.body.points
+  const journeyId = req.params.id;
+  console.log('Score entro', journeyId);
+  Journey.findById(journeyId)
+    .populate({
+      path: "score"
+    })
+    .then( journey => {
+      Score.create({
+        user: userId,
+        journey: journeyId,
+        points: pointsGave,
+        driver: journey.creator.toString()
+      })
+      return journey
+    })
+    .then( result => {
+      if(!result){
+        next(createError(401, "Journey not found"))
+      }
+      res.status(401).json(result)
+    })
+    .catch(next)
 }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const bcryp = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 const ROLLUSER =['Driver', 'Buddy']
 const EMAIL_PATTERN = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -55,7 +55,7 @@ roll: {
 
 UserSchema.pre('save', function(next){
   if(this.isModified('password')){
-    bcryp.hash(this.password, SALT_ROUNDS)
+    bcrypt.hash(this.password, SALT_ROUNDS)
       .then(hash =>{
         this.password = hash;
         next()
