@@ -20,8 +20,6 @@ router.get('/users/:id', userController.detail);
 //JOURNEY
 router.get('/journeys', journeyController.list);
 router.get('/journeys/:id', authMiddleware.isAuthenticated, journeyController.detail);
-
-//Create-cpmment-score
 router.post('/journeys', authMiddleware.isAuthenticated, journeyController.create);
 //router.post("/journey/search", journeyController.doSearch);
 

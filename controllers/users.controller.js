@@ -17,7 +17,6 @@ module.exports.create = (req, res, next) => {
     .catch(next)
 }
 module.exports.detail = (req, res, next) => {
-  
   User.findById(req.currentUser)
     .then(user => {
       res.status(201).json(user)

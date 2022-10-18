@@ -22,7 +22,7 @@ const journeySchema = new mongoose.Schema({
         required: [true, 'Departure time is required.'],
     },
     price:{
-        type:String,
+        type:Number,
     },
     date:{
         type: Date,
@@ -66,3 +66,15 @@ journeySchema.virtual("score", {
 
 const Journey = mongoose.model('Journey', journeySchema);
 module.exports = Journey;
+
+// origin:{
+//     street:{
+
+//     },
+//     coordinates: {
+//         long:{
+
+//         },
+//          lanth:{}
+//     }
+// }
