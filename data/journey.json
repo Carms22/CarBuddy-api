@@ -1,22 +1,40 @@
 [
   {
-    "seats": 3,
-    "origin":"Madrid centro",
-    "destination":"Getafe",
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": 3
+    },
+    "origin":{
+      "street":"Madrid centro",
+      "location": [-3.710528737376183, 40.41652834]
+    },
+    "destination":{
+      "street":"Madrid centro",
+      "location": [-3.710528737376183, 40.41652834]
+    },
     "departureTime": 7,
     "returnTime":18,
-    "price": "1€",
+    "price": 2,
     "date":"2022-12-09",
     "creator":"634868de53300598338c762b",
     "id":"0000000000000000000007"
   },
   {  
-  "seats": 3,
-  "origin": "Madrid norte",
-  "destination": "Cercedilla",
+    "vehicle":{
+      "typeOf":"Motorcycle",
+      "seats": 1
+    },
+    "origin":{
+      "street":"Madrid centro",
+      "location": [-3.683409328146948,40.42635057]
+    },
+    "destination":{
+      "street":"Madrid centro",
+      "location": [-3.710528737376183,40.41652834]
+    },
   "departureTime": 7,
   "returnTime": 18,
-  "price": "2€",
+  "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f",
   "id": "63497268739fb86d2c459db4"

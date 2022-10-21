@@ -1,17 +1,38 @@
 const mongoose = require('mongoose');
+const VEHICLE =['Car', 'Motorcycle'];
 
 const journeySchema = new mongoose.Schema({
-    seats: {
-        type: Number,
-        required: [true, 'Number of seats is required.'],
-    },
+    vehicle: {
+        typeOf:{
+            type: String,
+            enum:VEHICLE
+        },
+        seats: {
+            type: Number,
+            required: [true, 'Number of seats is required.'],
+            min:[1, "Min 1 seat per vehicle"],
+            max:[3, "Max 1 per motorcycle-3 per car seat per vehicle"]
+        }
+      },
     origin: {
-        type: String,
-        required: [true, 'Origin of the journey is required.'],
+        street: {
+            type: String,
+            required: [true, 'Origin of the journey is required.'], 
+        },
+        location: {
+            type: [Number],
+            coordinates: []
+        }
     },
     destination:{
-        type: String,
-        required: [true, 'Destination of the journey is required.'],
+        street:{
+            type: String,
+            required: [true, 'Destination of the journey is required.'],
+        },
+        location: {
+            type: [Number],
+            coordinates: []
+        }
     },
     departureTime:{
         type: Number,

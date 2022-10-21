@@ -12,29 +12,25 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Name is requiered'],
     minLength: [3, 'Name must contain at least 3 characters.'],
     unique: [true, 'Username must be unique'],
-},
-email: {
+  },
+  email: {
     type: String,
     required: [true, 'Email is required.'],
     match: [EMAIL_PATTERN, 'Email must be valid.'],
     unique: true,
-},
-password: {
+  },
+  password: {
     type: String,
     required: [true, 'Password is required.'],
     match: [PASSWORD_PATTERN, 'Password must contain at least 8 characters.']
-},
-googleID: {
+  },
+  image: {
     type: String,
-},
-image: {
-    type: String,
-},
-roll: {
+  },
+  roll: {
     type: String,
     enum: ROLLUSER
-}
-
+  }
 },
 {
   toJSON: {
