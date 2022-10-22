@@ -28,7 +28,6 @@ module.exports.login = (req, res, next) => {
                     expiresIn: '24h'
                   }
                 )
-                console.log(token);
                 res.json({ accessToken: token });
               }
             })

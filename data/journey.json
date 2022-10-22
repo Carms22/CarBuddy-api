@@ -2,7 +2,7 @@
   {
     "vehicle":{
       "typeOf":"Car",
-      "seats": 3
+      "seats": "3"
     },
     "origin":{
       "street":"Madrid centro",
@@ -22,7 +22,7 @@
   {  
     "vehicle":{
       "typeOf":"Motorcycle",
-      "seats": 1
+      "seats": "1"
     },
     "origin":{
       "street":"Madrid centro",

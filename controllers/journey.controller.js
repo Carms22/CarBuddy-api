@@ -15,9 +15,9 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   const data = req.body
+  console.log(data);
   Journey.create(data)
     .then(journeycreated =>{ 
-      console.log("Journey created",journeycreated );
       res.status(201).json(journeycreated)
     })
     .catch(next)

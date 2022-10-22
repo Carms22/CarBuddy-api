@@ -14,13 +14,13 @@ router.post('/login', authController.login);
 //USER
 router.get('/users', userController.list);
 router.post('/users', userController.create);
-router.get('/users/me', authMiddleware.isAuthenticated, userController.getCurrentUser);
+router.get('/users/me',  userController.getCurrentUser);
 router.get('/users/:id', userController.detail);
 
 //JOURNEY
 router.get('/journeys', journeyController.list);
 router.get('/journeys/:id', authMiddleware.isAuthenticated, journeyController.detail);
-router.post('/journeys', authMiddleware.isAuthenticated, journeyController.create);
+router.post('/journeys',  journeyController.create);
 //router.post("/journey/search", journeyController.doSearch);
 
 

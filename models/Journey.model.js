@@ -8,7 +8,7 @@ const journeySchema = new mongoose.Schema({
             enum:VEHICLE
         },
         seats: {
-            type: Number,
+            type: String,
             required: [true, 'Number of seats is required.'],
             min:[1, "Min 1 seat per vehicle"],
             max:[3, "Max 1 per motorcycle-3 per car seat per vehicle"]
@@ -84,18 +84,6 @@ journeySchema.virtual("score", {
     justOne: false,
 })
 
-
 const Journey = mongoose.model('Journey', journeySchema);
 module.exports = Journey;
 
-// origin:{
-//     street:{
-
-//     },
-//     coordinates: {
-//         long:{
-
-//         },
-//          lanth:{}
-//     }
-// }
