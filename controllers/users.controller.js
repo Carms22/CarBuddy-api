@@ -28,7 +28,7 @@ module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.currentUser)
     .then(user => {
       if (!user) {
-        next(createError(404, 'User not found'));
+        next(createError(401, 'Unauthrorized'));
       } else {
         res.json(user);
       }

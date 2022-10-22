@@ -15,7 +15,8 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   const data = req.body
-  console.log(data);
+  data.creator = req.currentUser
+  console.log("data backend from create",data);
   Journey.create(data)
     .then(journeycreated =>{ 
       res.status(201).json(journeycreated)

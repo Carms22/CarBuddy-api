@@ -14,7 +14,7 @@ router.post('/login', authController.login);
 //USER
 router.get('/users', userController.list);
 router.post('/users', userController.create);
-router.get('/users/me',  userController.getCurrentUser);
+router.get('/users/me', authMiddleware.isAuthenticated,  userController.getCurrentUser);
 router.get('/users/:id', userController.detail);
 
 //JOURNEY
