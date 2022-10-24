@@ -2,7 +2,6 @@ const createError = require('http-errors');
 const Journey = require('../models/Journey.model');
 const Comment = require('../models/Comment.model');
 const Score = require('../models/Score.model');
-const User = require('../models/User.model');
 
 //Journey
 module.exports.list = (req, res, next) => {
@@ -26,10 +25,15 @@ module.exports.create = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
   Journey.findById(journeyId)
-    .populate({ path: "comments"})
+    .populate({ 
+      path: "comments",
+      populate: {
+        path: "commentCreator"
+      }
+    })
     .populate({ path: "score"})
+    .populate({ path: "creator"})
     .then(journey => {
-      console.log(journey);
       if(!journey){
         next(createError(404,'Journey not found'))
       }else{ 
@@ -51,8 +55,8 @@ module.exports.delete = (req, res, next) => {
 module.exports.comment = (req, res, next)=> {
   const journeyId = req.params.id;
   const userId = req.currentUser;
-  console.log(userId);
   const { content } = req.body;
+
   Journey.findById(journeyId)
   .populate({
       path: "comments"
@@ -62,7 +66,7 @@ module.exports.comment = (req, res, next)=> {
     Comment.create({
         journey: journeyId,
         commentCreator: userId,
-        driver: journey.creator,
+        driver: journey.creator.toString(),
         content: content
     })
     return journey

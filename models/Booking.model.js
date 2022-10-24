@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 const BookingSchema = new mongoose.Schema(
   {
-    driver:{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    },
     user:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
