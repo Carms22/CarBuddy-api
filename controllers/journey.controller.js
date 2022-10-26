@@ -15,7 +15,6 @@ module.exports.list = (req, res, next) => {
 module.exports.create = (req, res, next) => {
   const data = req.body
   data.creator = req.currentUser
-  console.log("data backend from create",data);
   Journey.create(data)
     .then(journeycreated =>{ 
       res.status(201).json(journeycreated)
@@ -62,7 +61,6 @@ module.exports.comment = (req, res, next)=> {
       path: "comments"
   })
   .then(journey  => {
-    console.log("entro en findById en journey", journey)
     Comment.create({
         journey: journeyId,
         commentCreator: userId,
@@ -72,7 +70,6 @@ module.exports.comment = (req, res, next)=> {
     return journey
   })
   .then(journey => {
-    console.log('comment created',journey);
     res.status(201).json(journey)
   })
   .catch(next)
@@ -87,7 +84,6 @@ module.exports.score = (req, res, next) => {
   const userId = req.currentUser;
   const pointsGave = req.body.points
   const journeyId = req.params.id;
-  console.log('Score entro', journeyId);
   Journey.findById(journeyId)
     .populate({
       path: "score"

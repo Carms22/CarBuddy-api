@@ -33,6 +33,7 @@ router.post('/scores/:id', authMiddleware.isAuthenticated, journeyController.sco
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)
+router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookingByUser)
 
 
 

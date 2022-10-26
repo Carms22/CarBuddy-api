@@ -21,3 +21,16 @@ module.exports.createBooking = (req, res, next) => {
     })
     .catch(next)
 }
+
+module.exports.bookingByUser = (req, res, next) => {
+  const user = req.currentUser;
+  Booking.find({user})
+    .populate({ path: 'journey', populate: { path: 'creator' } })
+    .then(userBookings => {
+      if(userBookings) {
+        res.status(200).json(userBookings)
+      }
+      next(createError(401, "There is not bookings yet"))
+    })
+    .catch(next)
+}

@@ -3,10 +3,8 @@ const createError = require('http-errors');
 
 module.exports.isAuthenticated = (req, res, next) => {
   const authorization = req.header('Authorization')
-  console.log('isAuthenticated', req.header);
   if (authorization) {
     const [type, token] = authorization.split(' ');
-    console.log(type, token)
     if (type === 'Bearer') {
       if (token) {
         jwt.verify(token, 'Super secret', (err, decodedToken) => {
