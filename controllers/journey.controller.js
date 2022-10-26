@@ -79,29 +79,4 @@ module.exports.deleteComment =(req, res, next) => {
 
 }
 
-//Score
-module.exports.score = (req, res, next) => {
-  const userId = req.currentUser;
-  const pointsGave = req.body.points
-  const journeyId = req.params.id;
-  Journey.findById(journeyId)
-    .populate({
-      path: "score"
-    })
-    .then( journey => {
-      Score.create({
-        user: userId,
-        journey: journeyId,
-        points: pointsGave,
-        driver: journey.creator.toString()
-      })
-      return journey
-    })
-    .then( result => {
-      if(!result){
-        next(createError(401, "Journey not found"))
-      }
-      res.status(401).json(result)
-    })
-    .catch(next)
-}
+

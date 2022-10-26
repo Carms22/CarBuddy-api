@@ -3,7 +3,8 @@ const userController = require('../controllers/users.controller');
 const journeyController = require('../controllers/journey.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 const authController = require('../controllers/auth.controller');
-const bookingController =require('../controllers/booking.controller')
+const bookingController =require('../controllers/booking.controller');
+const miscController = require('../controllers/misc.controller');
 
 
 //MISC
@@ -29,11 +30,15 @@ router.post('/journeys', authMiddleware.isAuthenticated, journeyController.creat
 router.post('/comments/:id', authMiddleware.isAuthenticated, journeyController.comment);
 
 //Score
-router.post('/scores/:id', authMiddleware.isAuthenticated, journeyController.score);
+router.post('/scores/:id', authMiddleware.isAuthenticated, miscController.score);
+router.get('/scores', authMiddleware.isAuthenticated, miscController.getScore);
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)
 router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookingByUser)
+
+//SEARCH
+router.get('/searchs', miscController.search)
 
 
 
