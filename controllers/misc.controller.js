@@ -30,15 +30,20 @@ module.exports.postLatLong = (req, res, next) => {
   Journey.find({ 
     location:{
       $near: {
-        $maxDistance: 50000,
+        $maxDistance: 10000,
         $geometry: {
           type: "Point",
           coordinates: [lng, lat],
         },
       },
     }
+    
   })
-  .then( journeys => console.log("journeys encontrados", journeys)  )
+  .then( journeys => {
+    console.log("journeys postLatLong:", journeys);
+     res.status(200).json({ journeys })
+  })  
+  .catch(next)
 }
 
 // const lon = req.params.lon;

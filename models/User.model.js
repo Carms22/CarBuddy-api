@@ -26,10 +26,11 @@ const UserSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+    default: "https://img2.freepng.es/20180227/xqe/kisspng-cartoon-drawing-cartoon-car-5a9530ed8f4b48.9168319215197268295869.jpg"
   },
   roll: {
     type: String,
-    enum: ROLLUSER
+    default: "Buddy"
   }
 },
 {
