@@ -34,3 +34,16 @@ module.exports.bookingByUser = (req, res, next) => {
     })
     .catch(next)
 }
+module.exports.bookingByJourney = (req, res, next) => {
+  const user = req.currentUser;
+  const journeyId = req.params.id
+  Booking.find({journeyId})
+    .populate('user')
+    .then(bookingsByJourney => {
+      if(bookingsByJourney) {
+        res.status(200).json(bookingsByJourney)
+      }
+      next(createError(401, "There is not bookings yet"))
+    })
+    .catch(next)
+}

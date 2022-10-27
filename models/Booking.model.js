@@ -9,6 +9,10 @@ const BookingSchema = new mongoose.Schema(
     journey:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Journey'
+    },
+    isValidated:{
+      type: Boolean,
+      default: false
     }
   },
   {

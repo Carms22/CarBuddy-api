@@ -83,6 +83,7 @@ journeySchema.virtual("score", {
     foreignField: "journey",
     justOne: false,
 })
+journeySchema.index({ location: "2dsphere" });
 
 const Journey = mongoose.model('Journey', journeySchema);
 module.exports = Journey;

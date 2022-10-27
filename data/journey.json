@@ -12,12 +12,11 @@
       "street":"Madrid centro",
       "location": [-3.710528737376183, 40.41652834]
     },
-    "departureTime": 7,
-    "returnTime":18,
+    "departureTime": 9,
+    "returnTime":20,
     "price": 2,
     "date":"2022-12-09",
-    "creator":"634868de53300598338c762b",
-    "id":"0000000000000000000007"
+    "creator":"634868de53300598338c762b"
   },
   {  
     "vehicle":{
@@ -25,18 +24,131 @@
       "seats": "1"
     },
     "origin":{
-      "street":"Madrid centro",
-      "location": [-3.683409328146948,40.42635057]
+      "street":"C. de las Cocheras, 4, 28007 Madrid",
+      "location": [-3.6817066,40.4006428]
     },
     "destination":{
-      "street":"Madrid centro",
-      "location": [-3.710528737376183,40.41652834]
+      "street":"Palomas, 28042, Madrid",
+      "location": [-3.619396, 40.455862 ]
+    },
+  "departureTime": 7,
+  "returnTime": 17,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Canillas, Madrid",
+      "location": [-3.649436, 40.466963 ]
+    },
+    "destination":{
+      "street":"Atocha, Madrid",
+      "location": [-3.688408, 40.400297]
+    },
+  "departureTime": 8,
+  "returnTime": 18,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Motorcycle",
+      "seats": "1"
+    },
+    "origin":{
+      "street":"Atocha, Madrid",
+      "location": [-3.688408, 40.400297]
+    },
+    "destination":{
+      "street":"Canillas, Madrid",
+      "location": [-3.649436, 40.466963 ]
     },
   "departureTime": 7,
   "returnTime": 18,
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
-  "creator": "6349688f3870ca87bc88858f",
-  "id": "63497268739fb86d2c459db4"
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Palomas, 28042, Madrid",
+      "location": [-3.619396, 40.455862 ]
+    },
+    "destination":{
+      "street":"Gran Vía, Madrid",
+      "location": [-3.707634, 40.422190]
+    },
+  "departureTime": 6,
+  "returnTime": 18,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Moscardó, Madrid",
+      "location": [-3.702768, 40.390030]
+    },
+    "destination":{
+      "street":"P.º de la Castellana, 162, 28046 Madrid",
+      "location": [-3.6918303, 40.4570959]
+    },
+  "departureTime": 7,
+  "returnTime": 18,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Pacífico, Madrid",
+      "location": [-3.672185, 40.405751]
+    },
+    "destination":{
+      "street":"Cuatro Caminos, Madrid",
+      "location": [-3.690977, 40.448409]
+    },
+  "departureTime": 8,
+  "returnTime": 18,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Marroquina, 28030, Madrid",
+      "location": [-3.649612, 40.409672]
+    },
+    "destination":{
+      "street":"P.º de la Castellana, 162, 28046 Madrid",
+      "location": [-3.6918303, 40.4570959]
+    },
+  "departureTime": 7,
+  "returnTime": 18,
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
   }
 ]

@@ -35,10 +35,12 @@ router.get('/scores', authMiddleware.isAuthenticated, miscController.getScore);
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)
+router.get('/bookings/:id', authMiddleware.isAuthenticated, bookingController.bookingByJourney)
 router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookingByUser)
 
 //SEARCH
 router.get('/searchs', miscController.search)
+router.post('/searchs', miscController.postLatLong)
 
 
 
