@@ -31,7 +31,7 @@ router.post('/comments/:id', authMiddleware.isAuthenticated, journeyController.c
 
 //Score
 router.post('/scores/:id', authMiddleware.isAuthenticated, miscController.score);
-router.get('/scores', authMiddleware.isAuthenticated, miscController.getScore);
+router.get('/scores/:id', authMiddleware.isAuthenticated, miscController.getScore);
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)
@@ -39,8 +39,8 @@ router.get('/bookings/:id', authMiddleware.isAuthenticated, bookingController.bo
 router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookingByUser)
 
 //SEARCH
-router.get('/searchs', miscController.search)
-router.post('/searchs', miscController.postLatLong)
+//router.get('/searchs', miscController.search)
+router.get('/searchs', miscController.getJourneyFromSearch)
 
 
 

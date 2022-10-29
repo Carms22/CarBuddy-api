@@ -16,7 +16,7 @@ module.exports.createBooking = (req, res, next) => {
           .then(booking => booking.populate({ path: 'journey', populate: { path: 'creator' } }))
           .then(bookingCreated => res.status(200).json(bookingCreated))
       } else {
-        next(createError(401, "There is no seats left"))
+        next(createError(400, "There is no seats left"))
       }
     })
     .catch(next)
@@ -30,7 +30,7 @@ module.exports.bookingByUser = (req, res, next) => {
       if(userBookings) {
         res.status(200).json(userBookings)
       }
-      next(createError(401, "There is not bookings yet"))
+      next(createError(400, "There is not bookings yet"))
     })
     .catch(next)
 }
@@ -43,7 +43,7 @@ module.exports.bookingByJourney = (req, res, next) => {
       if(bookingsByJourney) {
         res.status(200).json(bookingsByJourney)
       }
-      next(createError(401, "There is not bookings yet"))
+      next(createError(400, "There is not bookings yet"))
     })
-    .catch(next)
+    .catch( err => console.log(err))
 }
