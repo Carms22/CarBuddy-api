@@ -1,5 +1,8 @@
 const createError = require('http-errors');
 const User = require('../models/User.model');
+const cloudinary = require("cloudinary").v2;
+const {CloudinaryStorage} = require("multer-storage-cloudinary")
+const multer = require("multer");
 
 module.exports.list = (req, res, next) => {
   User.find()
@@ -10,6 +13,9 @@ module.exports.list = (req, res, next) => {
 }
 module.exports.create = (req, res, next) => {
   const data = req.body
+  if(req.file){
+    req.body.image = req.file.path
+  }
   User.create(data)
     .then(user => {
       res.status(201).json(user)
