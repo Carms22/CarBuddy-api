@@ -24,6 +24,7 @@ module.exports.create = (req, res, next) => {
 }
 module.exports.detail = (req, res, next) => {
   User.findById(req.currentUser)
+    .populate('patata')
     .then(user => {
       res.status(201).json(user)
     })

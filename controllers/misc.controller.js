@@ -19,8 +19,8 @@ module.exports.getJourneyFromSearch = (req, res, next) => {
       },
     }
   })
+  .populate('score')
   .then( journeys => {
-    console.log("journeys postLatLong:", journeys);
      res.status(200).json(journeys)
   })  
   .catch(next)
@@ -67,14 +67,32 @@ module.exports.getScore = (req, res, next) => {
       path: "score"
   })
     .then(journey => {
-      console.log(journey.score);
-      journey.score.map( score => {
-        if (score.points) {
-          let totalPoints=+score.points
-         res.status(200).json(totalPoints)
-       }else {
-         next(createError(404, "Journey not found"))
+      console.log(journey)
+      const totalPoints = journey.score.reduce( (acc, curr) => {
+        if (curr.points) {          
+          return acc+= curr.points
        }
-      })
+       return acc
+      },0)
+      res.status(200).json(totalPoints/journey.score.length)
+    })
+}
+
+module.exports.getScoreOfUser = (req, res, next) => {
+  const creator = journey.creator
+  Journey.find( { creator })
+    .populate({
+      path: "score"
+  })
+    .then(journey => {
+      console.log(journey);
+    //   const totalPoints = journey.score.reduce( (acc, curr) => {
+    //     if (curr.points) {          
+    //       return acc+= curr.points
+    //    } else {
+    //      next(createError(404, "Journey not found"))
+    //    }
+    //   },0)
+    //   res.status(200).json(totalPoints/journey.score.length)
     })
 }

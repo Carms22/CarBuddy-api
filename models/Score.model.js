@@ -26,9 +26,9 @@ const ScoreSchema = new Schema({
       delete ret._id;
       return ret
     }
-  }
-},
-{ timestamps: true });
+  },
+  timestamps: true
+},)
 
 const Score = mongoose.model('Score', ScoreSchema);
 module.exports = Score;

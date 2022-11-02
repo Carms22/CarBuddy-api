@@ -17,10 +17,16 @@ mongoose.connection.once('open', () => {
     })
     .then((createdUsers) => {
       createdUsers.forEach(user => console.log(`${user.name} was created`))
+
+      return createdUsers
     })
-    .then(() => {
+    .then((createdUsers) => {
       console.info('Journeys')
-      return Journey.create(JOURNEYS)
+      const journeys = JOURNEYS.map(journey => ({
+        ...journey,
+        creator: createdUsers[Math.floor(Math.random() * createdUsers.length)]
+      }))
+      return Journey.create(journeys)
     })
     .then((createdJourneys) => {
       createdJourneys.forEach(journey => console.log(`${journey.origin} was created`))

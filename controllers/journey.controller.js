@@ -6,8 +6,9 @@ const Score = require('../models/Score.model');
 //Journey
 module.exports.list = (req, res, next) => {
   Journey.find()
+    .populate('score')
     .then(journeys => {
-      res.json(journeys)
+      res.status(200).json(journeys)
     })
     .catch(next)
 }

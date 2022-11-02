@@ -30,7 +30,7 @@ module.exports.bookingByUser = (req, res, next) => {
       if(userBookings) {
         res.status(200).json(userBookings)
       }
-      next(createError(400, "There is not bookings yet"))
+      next(createError(404, "There is not bookings yet"))
     })
     .catch(next)
 }
@@ -42,8 +42,9 @@ module.exports.bookingByJourney = (req, res, next) => {
     .then(bookingsByJourney => {
       if(bookingsByJourney) {
         res.status(200).json(bookingsByJourney)
+      } else {
+        next(createError(404, "There is not bookings yet"))
       }
-      next(createError(400, "There is not bookings yet"))
     })
     .catch( err => console.log(err))
 }

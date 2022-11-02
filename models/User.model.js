@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const Score = require('./Score.model')
 
 const ROLLUSER =['Driver', 'Buddy']
 const EMAIL_PATTERN = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -49,6 +50,7 @@ const UserSchema = new mongoose.Schema({
     toObject: { virtuals: true },
   }
 )
+
 
 UserSchema.pre('save', function(next){
   if(this.isModified('password')){

@@ -30,7 +30,8 @@ router.post('/comments/:id', authMiddleware.isAuthenticated, journeyController.c
 
 //Score
 router.post('/scores/:id', authMiddleware.isAuthenticated, miscController.score);
-router.get('/scores/:id', authMiddleware.isAuthenticated, miscController.getScore);
+router.get('/scores/:id', miscController.getScore);
+router.get('/scores', miscController.getScoreOfUser);
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)
