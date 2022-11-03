@@ -19,6 +19,8 @@ router.get('/users', authMiddleware.isAuthenticated, userController.list);
 router.post('/users',fileUpload.single('image'), userController.create);
 router.get('/users/me', authMiddleware.isAuthenticated,  userController.getCurrentUser);
 router.get('/users/:id', authMiddleware.isAuthenticated, userController.detail);
+router.get('/creators/:id', userController.getCreator);
+
 
 //JOURNEY
 router.get('/journeys', journeyController.list);
@@ -31,7 +33,7 @@ router.post('/comments/:id', authMiddleware.isAuthenticated, journeyController.c
 //Score
 router.post('/scores/:id', authMiddleware.isAuthenticated, miscController.score);
 router.get('/scores/:id', miscController.getScore);
-router.get('/scores', miscController.getScoreOfUser);
+
 
 //BOOKING
 router.post('/bookings/:id', authMiddleware.isAuthenticated, bookingController.createBooking)

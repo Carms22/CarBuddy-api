@@ -38,7 +38,12 @@ module.exports.bookingByJourney = (req, res, next) => {
   const user = req.currentUser;
   const journeyId = req.params.id
   Booking.find({journeyId})
-    .populate('user')
+    .populate({
+      path: 'user',
+      populate: {
+        path: 'score'
+      }
+    })
     .then(bookingsByJourney => {
       if(bookingsByJourney) {
         res.status(200).json(bookingsByJourney)

@@ -17,7 +17,6 @@ mongoose.connection.once('open', () => {
     })
     .then((createdUsers) => {
       createdUsers.forEach(user => console.log(`${user.name} was created`))
-
       return createdUsers
     })
     .then((createdUsers) => {

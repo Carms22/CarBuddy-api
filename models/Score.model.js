@@ -7,6 +7,11 @@ const ScoreSchema = new Schema({
       ref: 'User',
       required: true
     },
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
     journey:{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Journey',

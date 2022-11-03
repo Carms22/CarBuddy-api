@@ -4,7 +4,7 @@ const Journey = require('../models/Journey.model');
 const Score = require('../models/Score.model')
 const mongoose = require('mongoose');
 
-
+//Search by
 module.exports.getJourneyFromSearch = (req, res, next) => {
   const {lng, lat} = req.query;
   console.log('***** ', lng, lat);
@@ -26,8 +26,8 @@ module.exports.getJourneyFromSearch = (req, res, next) => {
   .catch(next)
 }
 
-
-//Score
+//SCORE
+//Create Score
 module.exports.score = (req, res, next) => {
   const userId = new mongoose.mongo.ObjectId(req.currentUser);
   const pointsGave = req.body.points;
@@ -38,11 +38,13 @@ module.exports.score = (req, res, next) => {
       if(booking.user._id.equals(userId)){
         console.log("entro al if the bookings para poner validate a true");
         Booking.findByIdAndUpdate(booking.id, {isValidated: true})
-          .then(() => {
+          .populate('journey')
+          .then((booking) => {
             return Score.create({
               user: userId,
               journey: booking.journey,
               points: pointsGave,
+              creator: booking.journey.creator
             })
           })
           .then(score => {
@@ -78,21 +80,3 @@ module.exports.getScore = (req, res, next) => {
     })
 }
 
-module.exports.getScoreOfUser = (req, res, next) => {
-  const creator = journey.creator
-  Journey.find( { creator })
-    .populate({
-      path: "score"
-  })
-    .then(journey => {
-      console.log(journey);
-    //   const totalPoints = journey.score.reduce( (acc, curr) => {
-    //     if (curr.points) {          
-    //       return acc+= curr.points
-    //    } else {
-    //      next(createError(404, "Journey not found"))
-    //    }
-    //   },0)
-    //   res.status(200).json(totalPoints/journey.score.length)
-    })
-}

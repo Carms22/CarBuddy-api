@@ -25,14 +25,19 @@ module.exports.create = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
   Journey.findById(journeyId)
+    .populate({ path: "score"})
     .populate({ 
       path: "comments",
       populate: {
         path: "commentCreator"
       }
     })
-    .populate({ path: "score"})
-    .populate({ path: "creator"})
+    .populate({
+      path: 'creator',
+      populate: {
+        path: 'score'
+      }
+    })
     .then(journey => {
       if(!journey){
         next(createError(404,'Journey not found'))

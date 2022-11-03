@@ -48,6 +48,7 @@ const UserSchema = new mongoose.Schema({
 },
 {
     toObject: { virtuals: true },
+    toJSON: { virtuals: true }
   }
 )
 
@@ -62,6 +63,14 @@ UserSchema.pre('save', function(next){
   } else {
     next()
   }
+})
+
+
+UserSchema.virtual("score", {
+  ref: "Score",
+  localField: "_id",
+  foreignField: "creator",
+  justOne: false,
 })
 
 UserSchema.methods.checkPassword = function(passwordToCompare) {
