@@ -5,10 +5,14 @@ const {CloudinaryStorage} = require("multer-storage-cloudinary")
 const multer = require("multer");
 const Journey = require('../models/Journey.model');
 
-module.exports.list = (req, res, next) => {
-  User.find()
-    .then(users => {
-      res.json(users)
+
+//Journeys of user-creator
+module.exports.listYourJourneys = (req, res, next) => {
+  const creator = req.currentUser
+
+  Journey.find({creator})
+    .then(journeys => {
+      res.status(201).json(journeys)
     })
     .catch(next)
 }
@@ -49,6 +53,7 @@ module.exports.getCurrentUser = (req, res, next) => {
     .catch(next)
 }
 
+//Get creator of the journey
 module.exports.getCreator = (req, res, next) => {
   const journeyId = req.params.id
   Journey.findById(journeyId)
@@ -59,9 +64,7 @@ module.exports.getCreator = (req, res, next) => {
       }
     })
     .then(journey => {
-      console.log(journey.creator);
       res.status(200).json(journey.creator)
     })
     .catch(err => console.log(err))
-
 }

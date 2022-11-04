@@ -15,10 +15,10 @@ router.get('/', (req, res, next) => res.json({ ok: true }));
 router.post('/login', authController.login);
 
 //USER
-router.get('/users', authMiddleware.isAuthenticated, userController.list);
 router.post('/users',fileUpload.single('image'), userController.create);
 router.get('/users/me', authMiddleware.isAuthenticated,  userController.getCurrentUser);
 router.get('/users/:id', authMiddleware.isAuthenticated, userController.detail);
+router.get('/creators/journeys', authMiddleware.isAuthenticated, userController.listYourJourneys);
 router.get('/creators/:id', userController.getCreator);
 
 
@@ -27,6 +27,7 @@ router.get('/journeys', journeyController.list);
 router.get('/journeys/:id', journeyController.detail);
 router.get('/journeys/:id/creator', journeyController.listByUser);
 router.post('/journeys', authMiddleware.isAuthenticated, journeyController.create);
+router.delete('/journeys/:id', authMiddleware.isAuthenticated, journeyController.delete);
 
 //COMMENTS
 router.post('/comments/:id', authMiddleware.isAuthenticated, journeyController.comment);

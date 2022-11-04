@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const Journey = require('../models/Journey.model');
 const Booking = require('../models/Booking.model');
 
+//Make a booking
 module.exports.createBooking = (req, res, next) => {
   const journeyId = req.params.id;
   const user = req.currentUser;
@@ -22,6 +23,8 @@ module.exports.createBooking = (req, res, next) => {
     .catch(next)
 }
 
+
+//Bookings of user
 module.exports.bookingByUser = (req, res, next) => {
   const user = req.currentUser;
   Booking.find({user})
@@ -34,6 +37,8 @@ module.exports.bookingByUser = (req, res, next) => {
     })
     .catch(next)
 }
+
+//Booking by journey
 module.exports.bookingByJourney = (req, res, next) => {
   const user = req.currentUser;
   const journeyId = req.params.id

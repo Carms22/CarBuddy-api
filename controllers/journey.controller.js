@@ -3,7 +3,7 @@ const Journey = require('../models/Journey.model');
 const Comment = require('../models/Comment.model');
 const Score = require('../models/Score.model');
 
-//Journey
+//Journeys
 module.exports.list = (req, res, next) => {
   Journey.find()
     .populate('score')
@@ -12,6 +12,8 @@ module.exports.list = (req, res, next) => {
     })
     .catch(next)
 }
+
+// All journeys by user
 module.exports.listByUser = (req, res, next) => {
   const journeyId = req.params.id
   Journey.findById(journeyId)
@@ -25,6 +27,7 @@ module.exports.listByUser = (req, res, next) => {
     .catch(next)
 }
 
+//Create journey
 module.exports.create = (req, res, next) => {
   const data = req.body
   data.creator = req.currentUser
@@ -34,6 +37,8 @@ module.exports.create = (req, res, next) => {
     })
     .catch(next)
 }
+
+//JOurney detail
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
   Journey.findById(journeyId)
@@ -63,8 +68,18 @@ module.exports.detail = (req, res, next) => {
 module.exports.edit = (req, res, next) => {
 
 }
-module.exports.delete = (req, res, next) => {
 
+//Delete journey by id 
+module.exports.delete = (req, res, next) => {
+  const journeyId = req.params.id;
+  const userId = req.currentUser;
+  console.log("delete", journeyId);
+  Journey.findByIdAndDelete( journeyId )
+    .then( journeyDeleted => {
+      console.log(journeyDeleted);
+      res.status(204).send({ success: 'journey removed from data base'})
+    })
+  .catch(next)
 }
 
 
@@ -93,8 +108,6 @@ module.exports.comment = (req, res, next)=> {
   .catch(next)
 }
 
-module.exports.deleteComment =(req, res, next) => {
 
-}
 
 

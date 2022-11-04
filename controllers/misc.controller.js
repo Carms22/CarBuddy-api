@@ -60,7 +60,7 @@ module.exports.score = (req, res, next) => {
     .catch(next)
 }
 
-
+//Get scores of journey
 module.exports.getScore = (req, res, next) => {
   const journeyId = req.params.id;
  
@@ -69,7 +69,6 @@ module.exports.getScore = (req, res, next) => {
       path: "score"
   })
     .then(journey => {
-      console.log(journey)
       const totalPoints = journey.score.reduce( (acc, curr) => {
         if (curr.points) {          
           return acc+= curr.points
