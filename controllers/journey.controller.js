@@ -12,6 +12,18 @@ module.exports.list = (req, res, next) => {
     })
     .catch(next)
 }
+module.exports.listByUser = (req, res, next) => {
+  const journeyId = req.params.id
+  Journey.findById(journeyId)
+    .then( journey => {
+      Journey.find({'creator' : journey.creator})
+      .populate('score')
+      .then(journeys => {
+        res.status(200).json(journeys)
+      })
+    })
+    .catch(next)
+}
 
 module.exports.create = (req, res, next) => {
   const data = req.body
