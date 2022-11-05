@@ -66,7 +66,16 @@ module.exports.detail = (req, res, next) => {
 }
 
 module.exports.edit = (req, res, next) => {
-
+  const journeyId = req.params.id
+  console.log(req.body);
+  Journey.findByIdAndUpdate(journeyId, req.body, {
+    new: true
+  })
+  .then(journey => {
+    res.status(201).json(journey)
+  })
+  .catch(next)
+  
 }
 
 //Delete journey by id 

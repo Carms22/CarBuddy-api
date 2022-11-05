@@ -11,6 +11,7 @@ module.exports.listYourJourneys = (req, res, next) => {
   const creator = req.currentUser
 
   Journey.find({creator})
+    .populate('score')
     .then(journeys => {
       res.status(201).json(journeys)
     })
@@ -40,9 +41,11 @@ module.exports.detail = (req, res, next) => {
     .catch(next)
 }
 
+//current user--for my rating
 module.exports.getCurrentUser = (req, res, next) => {
-  console.log(req.currentUser);
+
   User.findById(req.currentUser)
+    .populate('score')
     .then(user => {
       if (!user) {
         next(createError(401, 'Unauthrorized'));

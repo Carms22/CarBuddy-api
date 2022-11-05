@@ -25,6 +25,7 @@ router.get('/creators/:id', userController.getCreator);
 //JOURNEY
 router.get('/journeys', journeyController.list);
 router.get('/journeys/:id', journeyController.detail);
+router.post('/journeys/:id/edit',authMiddleware.isAuthenticated, journeyController.edit);
 router.get('/journeys/:id/creator', journeyController.listByUser);
 router.post('/journeys', authMiddleware.isAuthenticated, journeyController.create);
 router.delete('/journeys/:id', authMiddleware.isAuthenticated, journeyController.delete);

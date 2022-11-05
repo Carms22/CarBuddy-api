@@ -4,7 +4,7 @@ const Journey = require('../models/Journey.model');
 const Score = require('../models/Score.model')
 const mongoose = require('mongoose');
 
-//Search by
+//Search by destination(5km)
 module.exports.getJourneyFromSearch = (req, res, next) => {
   const {lng, lat} = req.query;
   console.log('***** ', lng, lat);
