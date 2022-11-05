@@ -74,8 +74,7 @@ module.exports.edit = (req, res, next) => {
   .then(journey => {
     res.status(201).json(journey)
   })
-  .catch(next)
-  
+
 }
 
 //Delete journey by id 

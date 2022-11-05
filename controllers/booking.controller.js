@@ -28,7 +28,15 @@ module.exports.createBooking = (req, res, next) => {
 module.exports.bookingByUser = (req, res, next) => {
   const user = req.currentUser;
   Booking.find({user})
-    .populate({ path: 'journey', populate: { path: 'creator' } })
+    .populate({ 
+      path: 'journey', 
+        populate: { 
+          path: 'creator',
+          populate: {
+            path:'score'
+          }
+        }
+    })
     .then(userBookings => {
       if(userBookings) {
         res.status(200).json(userBookings)

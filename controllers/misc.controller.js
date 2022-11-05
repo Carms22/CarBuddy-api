@@ -69,13 +69,9 @@ module.exports.getScore = (req, res, next) => {
       path: "score"
   })
     .then(journey => {
-      const totalPoints = journey.score.reduce( (acc, curr) => {
-        if (curr.points) {          
-          return acc+= curr.points
-       }
-       return acc
-      },0)
-      res.status(200).json(totalPoints/journey.score.length)
+      console.log(journey.score);
+      res.status(200).json(journey.score)
     })
+    .catch(next)
 }
 
