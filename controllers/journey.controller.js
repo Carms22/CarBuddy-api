@@ -7,6 +7,12 @@ const Score = require('../models/Score.model');
 module.exports.list = (req, res, next) => {
   Journey.find()
     .populate('score')
+    .populate({
+      path: 'creator',
+      populate: {
+        path: 'score'
+      }
+    })
     .then(journeys => {
       res.status(200).json(journeys)
     })
