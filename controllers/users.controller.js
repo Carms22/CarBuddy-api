@@ -12,6 +12,12 @@ module.exports.listYourJourneys = (req, res, next) => {
 
   Journey.find({creator})
     .populate('score')
+    .populate({
+      path:'creator',
+      populate:{
+        path: 'score'
+      }
+    })
     .then(journeys => {
       res.status(201).json(journeys)
     })
