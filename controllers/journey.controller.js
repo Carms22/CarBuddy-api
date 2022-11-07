@@ -26,6 +26,12 @@ module.exports.listByUser = (req, res, next) => {
     .then( journey => {
       Journey.find({'creator' : journey.creator})
       .populate('score')
+      .populate({ 
+        path: 'creator',
+        populate: {
+          path: 'score'
+        }
+      })
       .then(journeys => {
         res.status(200).json(journeys)
       })
@@ -48,7 +54,7 @@ module.exports.create = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
   Journey.findById(journeyId)
-    .populate( "score")
+    .populate({ path: "score"})
     .populate({ 
       path: "comments",
       populate: {
