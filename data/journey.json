@@ -150,5 +150,25 @@
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
+  },
+
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Pz Moncloa, 28008 Madrid, Madrid, Spain",
+      "location": [-3.65363185707612, 40.4213857104588]
+    },
+    "destination":{
+      "street":"Calle Del Poeta Blas De Otero, 28017 Madrid, Madrid, Spain",
+      "location": [-3.65363185707612, 40.4213857104588]
+    },
+  "departureTime": "07:00",
+  "returnTime": "18:00",
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
   }
 ]
