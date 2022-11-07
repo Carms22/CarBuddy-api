@@ -12,8 +12,8 @@
       "street":"Madrid centro",
       "location": [-3.710528737376183, 40.41652834]
     },
-    "departureTime": 9,
-    "returnTime":20,
+    "departureTime": "09:00",
+    "returnTime":"20:00",
     "price": 2,
     "date":"2022-12-09",
     "creator":"634868de53300598338c762b"
@@ -31,8 +31,8 @@
       "street":"Palomas, 28042, Madrid",
       "location": [-3.619396, 40.455862 ]
     },
-  "departureTime": 7,
-  "returnTime": 17,
+  "departureTime": "07:00",
+  "returnTime": "17:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -50,8 +50,8 @@
       "street":"Atocha, Madrid",
       "location": [-3.688408, 40.400297]
     },
-  "departureTime": 8,
-  "returnTime": 18,
+  "departureTime":" 08:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -69,8 +69,8 @@
       "street":"Canillas, Madrid",
       "location": [-3.649436, 40.466963 ]
     },
-  "departureTime": 7,
-  "returnTime": 18,
+  "departureTime": "07:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -88,8 +88,8 @@
       "street":"Gran Vía, Madrid",
       "location": [-3.707634, 40.422190]
     },
-  "departureTime": 6,
-  "returnTime": 18,
+  "departureTime": "06:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -107,8 +107,8 @@
       "street":"P.º de la Castellana, 162, 28046 Madrid",
       "location": [-3.6918303, 40.4570959]
     },
-  "departureTime": 7,
-  "returnTime": 18,
+  "departureTime": "07:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -126,8 +126,8 @@
       "street":"Cuatro Caminos, Madrid",
       "location": [-3.690977, 40.448409]
     },
-  "departureTime": 8,
-  "returnTime": 18,
+  "departureTime": " 08:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
@@ -145,8 +145,8 @@
       "street":"P.º de la Castellana, 162, 28046 Madrid",
       "location": [-3.6918303, 40.4570959]
     },
-  "departureTime": 7,
-  "returnTime": 18,
+  "departureTime": "07:00",
+  "returnTime": "18:00",
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"

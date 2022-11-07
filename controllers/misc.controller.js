@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 //Search by destination(5km)
 module.exports.getJourneyFromSearch = (req, res, next) => {
   const {lng, lat} = req.query;
-  console.log('***** ', lng, lat);
+  
   Journey.find({ 
     'destination.location': {
       $near: {

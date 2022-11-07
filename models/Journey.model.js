@@ -35,11 +35,11 @@ const journeySchema = new mongoose.Schema({
         }
     },
     departureTime:{
-        type: Number,
+        type: String,
         required: [true, 'Departure time is required.'],
     },
     returnTime:{
-        type: Number,
+        type: String,
         required: [true, 'Departure time is required.'],
     },
     price:{
