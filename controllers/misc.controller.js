@@ -20,6 +20,7 @@ module.exports.getJourneyFromSearch = (req, res, next) => {
     }
   })
   .populate('score')
+  .populate('creator')
   .then( journeys => {
      res.status(200).json(journeys)
   })  
