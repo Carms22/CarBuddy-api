@@ -48,9 +48,9 @@ module.exports.bookingByUser = (req, res, next) => {
 
 //Booking by journey
 module.exports.bookingByJourney = (req, res, next) => {
-  const user = req.currentUser;
-  const journeyId = req.params.id
-  Booking.find({journeyId})
+  const journeyId = req.params.id;
+  
+  Booking.find({'journey': journeyId})
     .populate({
       path: 'user',
       populate: {
@@ -58,6 +58,7 @@ module.exports.bookingByJourney = (req, res, next) => {
       }
     })
     .then(bookingsByJourney => {
+      console.log(" bookings by journey....", bookingsByJourney);
       if(bookingsByJourney) {
         res.status(200).json(bookingsByJourney)
       } else {

@@ -4,14 +4,14 @@ const Journey = require('../models/Journey.model');
 const Score = require('../models/Score.model')
 const mongoose = require('mongoose');
 
-//Search by destination(5km)
+//Search by destination(3km)
 module.exports.getJourneyFromSearch = (req, res, next) => {
   const {lng, lat} = req.query;
   
   Journey.find({ 
     'destination.location': {
       $near: {
-        $maxDistance: 5000,
+        $maxDistance: 3000,
         $geometry: {
           type: "Point",
           coordinates: [lng, lat],

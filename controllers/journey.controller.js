@@ -53,6 +53,7 @@ module.exports.create = (req, res, next) => {
 //JOurney detail
 module.exports.detail = (req, res, next) => {
   const journeyId = req.params.id;
+  
   Journey.findById(journeyId)
     .populate({ path: "score"})
     .populate({ 
