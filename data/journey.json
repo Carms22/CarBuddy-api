@@ -170,5 +170,62 @@
   "price": 1,
   "date": "2022-12-19T00:00:00.000Z",
   "creator": "6349688f3870ca87bc88858f"
+  },  
+  {  
+    "vehicle":{
+      "typeOf":"Motorcycle",
+      "seats": "1"
+    },
+    "origin":{
+      "street":"Palomas, 28042, Madrid",
+      "location": [-3.619396, 40.455862 ]
+    },
+    "destination":{
+      "street":"C. de las Cocheras, 4, 28007 Madrid",
+      "location": [-3.6817066,40.4006428]
+    },
+  "departureTime": "07:00",
+  "returnTime": "17:00",
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"P.º de la Castellana, 162, 28046 Madrid",
+      "location": [-3.6918303, 40.4570959]
+    },
+    "destination":{
+      "street":"Moscardó, Madrid",
+      "location": [-3.702768, 40.390030]
+    },
+  "departureTime": "07:00",
+  "returnTime": "18:00",
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
+  },
+  {  
+    "vehicle":{
+      "typeOf":"Car",
+      "seats": "3"
+    },
+    "origin":{
+      "street":"Cuatro Caminos, Madrid",
+      "location": [-3.690977, 40.448409]
+    },
+    "destination":{
+      "street":"Pacífico, Madrid",
+      "location": [-3.672185, 40.405751]
+    },
+  "departureTime": " 08:00",
+  "returnTime": "18:00",
+  "price": 1,
+  "date": "2022-12-19T00:00:00.000Z",
+  "creator": "6349688f3870ca87bc88858f"
   }
 ]
