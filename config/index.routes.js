@@ -5,7 +5,8 @@ const authMiddleware = require('../middlewares/auth.middleware');
 const authController = require('../controllers/auth.controller');
 const bookingController =require('../controllers/booking.controller');
 const miscController = require('../controllers/misc.controller');
-const fileUpload = require('../config/cloudinary.config')
+const fileUpload = require('../config/cloudinary.config');
+const { cosas } = require('../bin/seed');
 
 
 //MISC
@@ -46,6 +47,8 @@ router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookin
 //SEARCH
 router.get('/searchs', miscController.getJourneyFromSearch)
 
+//SEED
+router.post("/seeds", (req, res, next) => cosas())
 
 
 module.exports = router;
