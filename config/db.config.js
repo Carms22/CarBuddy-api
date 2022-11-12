@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const DB_NAME = 'CarBuddy';
+const DB_NAME = 'Cluster0';
 const URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 const DB_URI = `${URI}`;
 
