@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js bin/seed.js",
     "dev": "nodemon ./app.js",
     "seeds": "node bin/seed.js"
   },
