@@ -3,7 +3,7 @@ const Booking = require('../models/Booking.model');
 const Journey = require('../models/Journey.model');
 const Score = require('../models/Score.model')
 const mongoose = require('mongoose');
-const stripe = require('stripe')
+const Stripe = require('stripe')
 
 //Search by destination(3km)
 module.exports.getJourneyFromSearch = (req, res, next) => {
@@ -78,7 +78,18 @@ module.exports.getScore = (req, res, next) => {
 }
 
 //Payment
-module.exports.postPayment = (req, res, next) => {
-  const data = req.body
-  console.log(data);
+module.exports.postPayment =  (req, res, next) => {
+  const stripe = new Stripe(process.env.SPRITE_KEY);
+  const {id, amount} = req.body;
+  try {
+    const payment =  stripe.paymentIntents.create({
+      amount,
+      currency: "EUR",
+      description: "paid",
+      payment_method: id
+    })
+    res.send({message: "Successful payment"})
+  } catch(err){
+    console.log(err);
+  }
 }
