@@ -3,7 +3,7 @@ const Booking = require('../models/Booking.model');
 const Journey = require('../models/Journey.model');
 const Score = require('../models/Score.model')
 const mongoose = require('mongoose');
-const Stripe = require('stripe')
+//const Stripe = require('stripe')
 
 //Search by destination(3km)
 module.exports.getJourneyFromSearch = (req, res, next) => {
