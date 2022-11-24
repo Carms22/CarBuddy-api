@@ -46,6 +46,6 @@ router.get('/bookings', authMiddleware.isAuthenticated, bookingController.bookin
 router.get('/searchs', miscController.getJourneyFromSearch)
 
 //Payment
-router.post('/payment', authMiddleware.isAuthenticated, miscController.postPayment)
+//router.post('/payment', authMiddleware.isAuthenticated, miscController.postPayment)
 
 module.exports = router;

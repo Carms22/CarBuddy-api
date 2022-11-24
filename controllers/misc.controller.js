@@ -78,18 +78,18 @@ module.exports.getScore = (req, res, next) => {
 }
 
 //Payment
-module.exports.postPayment =  (req, res, next) => {
-  const stripe = new Stripe(process.env.SPRITE_KEY);
-  const {id, amount} = req.body;
-  try {
-    const payment =  stripe.paymentIntents.create({
-      amount,
-      currency: "EUR",
-      description: "paid",
-      payment_method: id
-    })
-    res.send({message: "Successful payment"})
-  } catch(err){
-    console.log(err);
-  }
-}
+// module.exports.postPayment =  (req, res, next) => {
+//   const stripe = new Stripe(process.env.SPRITE_KEY);
+//   const {id, amount} = req.body;
+//   try {
+//     const payment =  stripe.paymentIntents.create({
+//       amount,
+//       currency: "EUR",
+//       description: "paid",
+//       payment_method: id
+//     })
+//     res.send({message: "Successful payment"})
+//   } catch(err){
+//     console.log(err);
+//   }
+// }
