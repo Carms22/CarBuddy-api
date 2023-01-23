@@ -11,6 +11,11 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 // CORS middleware
+app.use((req, res, next)=> {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
+
 app.use(cors({ origin: process.env.CORS_ORIGIN || 'http://localhost:3000' }))
 // app.use((req, res, next) => {
 //   res.set("Access-Control-Allow-Origin", "http://localhost:3000");
